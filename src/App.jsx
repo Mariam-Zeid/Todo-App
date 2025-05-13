@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FiEdit3, FiTrash2 } from "react-icons/fi";
 import Stats from "./components/Stats/Stats";
 import TaskForm from "./components/Task Form/TaskForm";
 import TaskList from "./components/Tasks/TaskList";
@@ -27,12 +26,15 @@ export default function App() {
     e.preventDefault();
     if (!task.description) return;
 
-    if (editableId) {
+    if (editableId !== null) {
+      // Fix: Ensure we're checking if editableId is not null instead of truthy check
       setTasks((prevTasks) =>
         prevTasks.map((prevTask, index) =>
-          index === editableId ? { ...task } : prevTask
+          index === editableId ? { ...prevTask, ...task } : prevTask
         )
       );
+      // Clear edit mode after successful edit
+      setEditableId(null);
     } else {
       const newTask = {
         description: task.description,
@@ -46,6 +48,7 @@ export default function App() {
       isDone: false,
     });
   };
+
   const handleTaskStatus = (index) => {
     setTasks((prevTasks) =>
       prevTasks.map((task, i) =>
@@ -59,6 +62,7 @@ export default function App() {
     setTask({ ...taskToEdit });
     setEditableId(index);
   };
+
   const handleDeleteTask = (index) => {
     setTasks((prevTasks) => prevTasks.filter((_, i) => i !== index));
 
