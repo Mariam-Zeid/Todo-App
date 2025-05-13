@@ -16,6 +16,8 @@ body {
   background-color: var(--secondaryBackground);
   color: var(--text);
   font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  display: grid;
 }
 .container {
   width: 90%;
@@ -198,9 +200,13 @@ body {
 /* ?======================= Media Queries ======================= */
 
 @media screen and (min-width: 768px) {
+  body {
+    place-content: center;
+  }
   .container {
     width: 700px;
     padding: 2.5rem;
+    margin-top: 0;
   }
   .stats-container {
     padding: 1.875rem;
