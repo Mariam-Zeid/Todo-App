@@ -1,9 +1,16 @@
 # Todo App
 
-A simple Todo app built with React to practice using useState for state management.
+A React project focusing on state management with `useState` for dynamic and interactive UI.
 
 ### 🌐 Visit the website: [To-Do Live Demo](https://todo-app-mu-one-91.vercel.app/)
 
 ## 📸 Preview
 
 ![To-Do App](public/imgs/design.png)
+
+## Key Concepts
+
+- **State Management:** Leveraging `useState` for real-time task updates.  
+- **Components:** Modular structure with `Stats`, `TaskForm`, and `TaskList` components.  
+- **Conditional Rendering:** Editing mode toggled dynamically for task updates.  
+- **Event Handling:** User interactions for adding, editing, completing, and deleting tasks.  
